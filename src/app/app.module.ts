@@ -66,7 +66,9 @@ export function tokenGetter() {
       }
    }),
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

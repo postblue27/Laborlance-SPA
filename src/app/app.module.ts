@@ -21,6 +21,7 @@ import { ToastrModule } from 'ngx-toastr';
 //modules
 import { AppRoutingModule } from './app-routing.module';
 import { AdminModule } from './admin/admin.module';
+import { CustomerModule } from './customer/customer.module';
 
 //components
 import { AppComponent } from './app.component';
@@ -28,6 +29,7 @@ import { AuthComponent } from './auth/auth.component';
 
 //services
 import { AuthService } from './_services/auth.service';
+
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -55,6 +57,7 @@ export function tokenGetter() {
     MatIconModule,
     HttpClientModule,
     AdminModule,
+    CustomerModule,
     BrowserAnimationsModule,
     Ng2SmartTableModule,
     ToastrModule.forRoot(),

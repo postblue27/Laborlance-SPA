@@ -10,7 +10,7 @@ const routes: Routes = [
     runGuardsAndResolvers: 'always',
     canActivate: [AuthGuard, AdminGuard],
     children: [
-      {path: 'crud-users', component: CrudUsersComponent},
+      {path: 'crud-users/:roleName', component: CrudUsersComponent},
     ]
 }
 ];

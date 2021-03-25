@@ -68,6 +68,12 @@ export class AuthComponent implements OnInit {
     }, () => {
       if(this.authService.getDecodedToken().role === 'Admin')
       this.router.navigate(['/admin']);
+      if(this.authService.getDecodedToken().role === 'Customer')
+      this.router.navigate(['/customer']);
+      if(this.authService.getDecodedToken().role === 'Renter')
+      this.router.navigate(['/renter']);
+      if(this.authService.getDecodedToken().role === 'Worker')
+      this.router.navigate(['/worker']);
     });
   }
 

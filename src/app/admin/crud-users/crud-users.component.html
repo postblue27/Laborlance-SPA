@@ -1,3 +1,26 @@
-<p>
-  crud-users works!
+<p *ngIf="router.url === '/admin/crud-users/admins'">
+  admins table
 </p>
+<p *ngIf="router.url === '/admin/crud-users/workers'">
+  workers table
+</p>
+<div *ngIf="router.url === '/admin/crud-users/admin'">
+  <h1 i18n class="m-3">Administrators</h1>
+  <ng2-smart-table (editConfirm)="updateUser($event)" (deleteConfirm)="deleteUser($event)" 
+      (createConfirm)="createUser($event)" [settings]="usersTableSettings" [source]="users"></ng2-smart-table>
+</div>
+<div *ngIf="router.url === '/admin/crud-users/worker'">
+  <h1 i18n class="m-3">Workers</h1>
+  <ng2-smart-table (editConfirm)="updateWorker($event)" (deleteConfirm)="deleteUser($event)" 
+      (createConfirm)="createUser($event)" [settings]="workersTableSettings" [source]="users"></ng2-smart-table>
+</div>
+<div *ngIf="router.url === '/admin/crud-users/renter'">
+  <h1 i18n class="m-3">Renters</h1>
+  <ng2-smart-table (editConfirm)="updateUser($event)" (deleteConfirm)="deleteUser($event)" 
+      (createConfirm)="createUser($event)" [settings]="usersTableSettings" [source]="users"></ng2-smart-table>
+</div>
+<div *ngIf="router.url === '/admin/crud-users/customer'">
+  <h1 i18n class="m-3">Customers</h1>
+  <ng2-smart-table (editConfirm)="updateUser($event)" (deleteConfirm)="deleteUser($event)" 
+      (createConfirm)="createUser($event)" [settings]="usersTableSettings" [source]="users"></ng2-smart-table>
+</div>

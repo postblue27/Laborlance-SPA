@@ -1,0 +1,33 @@
+<mat-card mat-card  class="app-nav color-primary">
+  <button i18n type="button" mat-stroked-button color="accent" (click)="drawer.toggle()">
+    Toggle sidenav
+  </button>
+</mat-card>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side" opened>
+    
+    <mat-accordion>
+
+      <mat-list>
+        <mat-list-item>
+          <a i18n mat-stroked-button [routerLink]="['create-order']" class="sidenav-button">Create Order</a>
+        </mat-list-item>
+        <mat-list-item>
+          <a i18n mat-stroked-button [routerLink]="['crud-users/worker']" class="sidenav-button">Workers</a>
+        </mat-list-item>
+        <mat-list-item>
+          <a i18n mat-stroked-button [routerLink]="['crud-users/renter']" class="sidenav-button">Renters</a>
+        </mat-list-item>
+        <mat-list-item>
+          <a i18n mat-stroked-button [routerLink]="['crud-users/customer']" class="sidenav-button">Customers</a>
+        </mat-list-item>
+      </mat-list>
+
+    </mat-accordion>
+
+  </mat-drawer>
+
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>

@@ -9,6 +9,12 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "ru": "locale/messages.ru.xlf"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -26,7 +32,8 @@
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": []
           },
@@ -58,6 +65,11 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "ru": {
+              "aot": true,
+              "outputPath": "dist/under-c-ru/",
+              "localize": ["ru"]
             }
           }
         },
@@ -69,6 +81,9 @@
           "configurations": {
             "production": {
               "browserTarget": "Laborlance-SPA:build:production"
+            },
+            "ru": {
+              "browserTarget": "Laborlance-SPA:build:ru"
             }
           }
         },

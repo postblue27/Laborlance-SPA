@@ -1,0 +1,33 @@
+<mat-card class="m-2 w-40">
+  <mat-card-subtitle>Order description:</mat-card-subtitle>
+  <mat-card-content><h3>{{order.description}}</h3></mat-card-content>
+</mat-card>
+<h3 class="m-2">Order proposals: </h3>
+<mat-card class="m-2 w-40" *ngFor="let proposal of proposals">
+    <mat-card-title *ngIf="proposal === proposals[0]" style="color: rgb(2, 184, 2); text-align: center;">BEST CHOICE</mat-card-title>
+    <mat-card-subtitle>Proposal:</mat-card-subtitle>
+    <mat-card-content>
+      <h3>Worker: {{proposal.worker.userName}}</h3>
+      <h3>Hourly Wage: {{proposal.worker.hourlyWage}}$</h3>
+      <h3>Rating: {{proposal.worker.rating}}</h3>
+      <h3>Proposed tools: </h3>
+      <mat-card class="m-1" *ngFor="let toolInProposal of proposal.proposedTools">
+        <h4>Tool name: {{toolInProposal.tool.toolName}}</h4>
+        <h4>Tool rental price: {{toolInProposal.tool.rentalPrice}}$</h4>
+      </mat-card>
+      <mat-card>
+        <h2>Total price per hour: {{countPricePerHour(proposal)}}$</h2>
+      </mat-card>
+    </mat-card-content>
+    <mat-card-actions align="center">
+        <mat-card-action>
+            <a mat-raised-button class="" color="primary"
+                (click)="createOperation(proposal.proposalId)">
+                Accept proposal
+            </a>
+        </mat-card-action> 
+        <mat-card-action>
+            <button mat-button class="ml-3" color="warn" (click)="openDialog(order)">Decline</button>
+        </mat-card-action>   
+    </mat-card-actions>
+</mat-card>

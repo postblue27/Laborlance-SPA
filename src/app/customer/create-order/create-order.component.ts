@@ -24,7 +24,7 @@ export class CreateOrderComponent implements OnInit {
     }
     this.orderService.createOrder(order).subscribe(response => {
       console.log(response);
-      this.toastr.success(response.toString());
+      this.toastr.success('Order successfully created');
     }, error => {
       console.log(error);
       this.toastr.error(error);

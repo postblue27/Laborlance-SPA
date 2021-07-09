@@ -1,0 +1,26 @@
+<h3 class="m-2">Your Tools</h3>
+
+<h3 class="m-2">Free tools:</h3>
+<mat-card class="m-1 w-40" *ngFor="let tool of freeTools()">
+  <h4>Tool name: {{tool.toolName}}</h4>
+  <h4>Tool rental price: {{tool.rentalPrice}}$</h4>
+  <mat-card-actions align="center">
+    <mat-card-action>
+        <button mat-raised-button class="ml-3" color="warn" (click)="deleteTool(tool)">Delete tool</button>
+    </mat-card-action>   
+</mat-card-actions>
+</mat-card>
+
+<h3 class="m-2">In operations:</h3>
+<mat-card class="m-1 w-40" *ngFor="let tool of toolsInOperations()">
+  <h4>Tool name: {{tool.toolName}}</h4>
+  <h4>Tool rental price: {{tool.rentalPrice}}$</h4>
+  <h4>Operation description: {{tool.operation.description}}</h4>
+  <h4>Current operation duration: {{countOperationTime(tool.operation).toFixed(2)}} hours</h4>
+  <h2>Current rental price: {{countCurrentPrice(tool).toFixed(2)}}$</h2>
+</mat-card>
+
+
+
+
+

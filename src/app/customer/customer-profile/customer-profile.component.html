@@ -1,0 +1,28 @@
+<!--------------------- Login form --------------------->
+<form [formGroup]="profileForm" novalidate (ngSubmit)="editProfile()">
+  <mat-card>
+    <!-- Login user userRole control -->
+    
+
+    <!-- Login username control -->
+    <mat-form-field class="full-width">
+      <input type="text" name="username" matInput i18n-placeholder placeholder="Username" formControlName="username">
+      <mat-error i18n *ngIf="profileForm.controls['username'].hasError('required')">
+        Username is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Login password control -->
+    <mat-form-field class="full-width">
+      <input type="password" name="password" matInput i18n-placeholder placeholder="Password" formControlName="password">
+      <mat-error i18n *ngIf="profileForm.controls['password'].hasError('required')">
+        Password is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <!-- Login buttons -->
+    <mat-card-actions>
+      <button i18n [disabled]="!profileForm.valid" class="w-40" mat-raised-button color="primary" type="submit">Submit</button>
+      <button i18n class="w-40" mat-stroked-button color="basic" type="reset">Reset</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

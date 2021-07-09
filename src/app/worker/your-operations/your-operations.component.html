@@ -1,0 +1,33 @@
+<h3 class="m-2">Your Operations</h3>
+<mat-card class="m-2 w-40" *ngFor="let operation of operations">
+    <mat-card-title *ngIf="operation.endDate !== null" style="color: rgb(6, 179, 6);">CLOSED</mat-card-title>
+    <mat-card-subtitle>Operation:</mat-card-subtitle>
+    <mat-card-content>
+      <h3>Description: <b>{{operation.description}}</b></h3>
+      <h3>Worker: <b>{{operation.worker.userName}}</b></h3>
+      <h3>Start date: <b>{{operation.startDate | date: "M/d/yy, h:mm a"}}</b></h3>
+      <h3 *ngIf="operation.endDate !== null">End date: <b>{{operation.endDate | date: "M/d/yy, h:mm a"}}</b></h3>
+      <h3 *ngIf="operation.endDate === null">Worker hourly wage: <b>{{operation.worker.hourlyWage}}$</b></h3>
+      <h3 *ngIf="operation.endDate === null">Rented tools:</h3>
+      <mat-card *ngIf="operation.endDate === null">
+        <mat-card  class="m-1" *ngFor="let tool of operation.toolsInRent" >
+          <h4>Tool name: {{tool.toolName}}</h4>
+          <h4>Tool rental price: {{tool.rentalPrice}}$</h4>
+        </mat-card>
+      </mat-card>
+      <mat-card *ngIf="operation.endDate === null">
+        <h2>Total price per hour: {{countPricePerHour(operation)}}$</h2>
+      </mat-card>
+      <mat-card>
+        <h2 *ngIf="operation.endDate === null">Operation already lasts: {{countOperationTime(operation).toFixed(2)}} hours</h2>
+        <h2 *ngIf="operation.endDate !== null">Operation lasted: {{countClosedOperationTime(operation).toFixed(2)}} hours</h2>
+        <h1 *ngIf="operation.endDate === null">Total current price: {{countCurrentPrice(operation).toFixed(2)}}$</h1>
+        <h1 *ngIf="operation.endDate !== null">Total price: {{(operation.currentPrice).toFixed(2)}}$</h1>
+      </mat-card>
+    </mat-card-content>
+    <mat-card-actions *ngIf="operation.endDate === null" align="center">
+        <mat-card-action>
+            <button mat-raised-button class="ml-3" color="warn" (click)="closeOperation(operation)">Close operation</button>
+        </mat-card-action>   
+    </mat-card-actions>
+</mat-card>

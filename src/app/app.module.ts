@@ -29,6 +29,8 @@ import { AuthComponent } from './auth/auth.component';
 
 //services
 import { AuthService } from './_services/auth.service';
+import { RenterModule } from './renter/renter.module';
+import { WorkerModule } from './worker/worker.module';
 
 
 export function tokenGetter() {
@@ -58,14 +60,16 @@ export function tokenGetter() {
     HttpClientModule,
     AdminModule,
     CustomerModule,
+    RenterModule,
+    WorkerModule,
     BrowserAnimationsModule,
     Ng2SmartTableModule,
     ToastrModule.forRoot(),
     JwtModule.forRoot({
       config : {
          tokenGetter: tokenGetter,
-         allowedDomains: ['localhost:5000', 'https://hrp-api.herokuapp.com'],
-         disallowedRoutes: ['localhost:5000/api/auth', 'https://hrp-api.herokuapp.com/api/auth']
+         allowedDomains: ['localhost:5000', 'https://laborlance.azurewebsites.net'],
+         disallowedRoutes: ['localhost:5000/api/auth', 'https://laborlance.azurewebsites.net/api/auth']
       }
    }),
   ],

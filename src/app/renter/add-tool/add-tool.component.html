@@ -1,0 +1,16 @@
+
+  <form [formGroup]="toolForm" (ngSubmit)="addTool()" class="example-form ml-4 mt-4 w-50">
+    <mat-form-field class="example-full-width w-100">
+      <mat-label>Tool name</mat-label>
+      <input matInput formControlName="toolName" placeholder="">
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width w-100">
+      <mat-label>Rental price</mat-label>
+      <input matInput formControlName="rentalPrice">
+    </mat-form-field>
+
+    <button i18n class="w-40" mat-raised-button color="primary" type="submit">Submit</button>
+  </form>
+  <br>
+

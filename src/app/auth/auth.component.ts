@@ -64,7 +64,7 @@ export class AuthComponent implements OnInit {
     this.authService.login(this.loginForm.value).subscribe(response => {
       this.toastr.success('Logged In');
     }, error => {
-      this.toastr.error('Failed to login: ' + error);
+      this.toastr.error('Failed to login: ' + error.error);
     }, () => {
       if(this.authService.getDecodedToken().role === 'Admin')
       this.router.navigate(['/admin']);
@@ -82,8 +82,11 @@ export class AuthComponent implements OnInit {
     
     this.authService.register(this.registerForm.value).subscribe(response => {
       console.log(response);
+      this.toastr.success('Successfully Signed Up');
       // this.router.navigateByUrl('/dashboard');
+      
     }, error => {
+      this.toastr.error('Error Signing Up');
       console.log(error);
     });
   }

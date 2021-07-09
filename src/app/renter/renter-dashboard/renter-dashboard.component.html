@@ -1,8 +1,8 @@
 <mat-card mat-card  class="app-nav color-primary">
-  <button i18n mat-stroked-button color="accent" (click)="drawer.toggle()">
+  <button i18n type="button" mat-stroked-button color="accent" (click)="drawer.toggle()">
     Toggle sidenav
   </button>
-  <span style="font-size: 18px; margin: 15px; color: white;">Customer account: {{authService.decodedToken.unique_name}}</span>
+  <span style="font-size: 18px; margin: 15px; color: white;">Renter account: {{authService.decodedToken.unique_name}}</span>
   <button i18n class="ml-4" mat-stroked-button color="warn" (click)="this.authService.logout()">
     Logout
   </button>
@@ -14,13 +14,10 @@
 
       <mat-list>
         <mat-list-item>
-          <a i18n mat-stroked-button [routerLink]="['create-order']" class="sidenav-button">Create Order</a>
+          <a i18n mat-stroked-button [routerLink]="['add-tool']" class="sidenav-button">Add Tool</a>
         </mat-list-item>
         <mat-list-item>
-          <a i18n mat-stroked-button [routerLink]="['your-orders']" class="sidenav-button">Your Orders</a>
-        </mat-list-item>
-        <mat-list-item>
-          <a i18n mat-stroked-button [routerLink]="['your-operations']" class="sidenav-button">Your operations</a>
+          <a i18n mat-stroked-button [routerLink]="['your-tools']" class="sidenav-button">Your tools</a>
         </mat-list-item>
       </mat-list>
 

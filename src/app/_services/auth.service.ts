@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { environment } from 'src/environments/environment';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class AuthService {
   jwtHelper = new JwtHelperService();
   decodedToken: any;
 
-  constructor(private http: HttpClient, public toastr: ToastrService) { }
+  constructor(private http: HttpClient, public toastr: ToastrService, private router: Router) { }
 
   login(model: any){
     return this.http.post(this.baseUrl + 'login', model)
@@ -41,6 +42,8 @@ export class AuthService {
     localStorage.removeItem('token');
     this.decodedToken = '';
     console.log('logged out');
+    this.toastr.info('Logged Out');
+    this.router.navigateByUrl('/auth');
   }
 
   register(model: any) {

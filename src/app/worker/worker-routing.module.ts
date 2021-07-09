@@ -3,19 +3,21 @@ import { Routes, RouterModule, ActivatedRouteSnapshot, Resolve, Router } from '@
 import { ToastrService } from 'ngx-toastr';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { AddToolComponent } from '../renter/add-tool/add-tool.component';
+import { YourToolsComponent } from '../renter/your-tools/your-tools.component';
 import { AuthGuard } from '../_guards/auth.guard';
-import { CustomerGuard } from '../_guards/customer.guard';
+import { RenterGuard } from '../_guards/renter.guard';
+import { WorkerGuard } from '../_guards/worker.guard';
 import { OrderService } from '../_services/order.service';
-import { CreateOrderComponent } from './create-order/create-order.component';
-import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
-import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
-import { OrderProposalsComponent } from './order-proposals/order-proposals.component';
+import { AddProposalComponent } from './add-proposal/add-proposal.component';
+import { SearchForOrdersComponent } from './search-for-orders/search-for-orders.component';
+import { WorkerDashboardComponent } from './worker-dashboard/worker-dashboard.component';
 import { YourOperationsComponent } from './your-operations/your-operations.component';
-import { YourOrdersComponent } from './your-orders/your-orders.component';
+import { YourProposalsComponent } from './your-proposals/your-proposals.component';
 
 
 @Injectable()
-export class OrderResolver implements Resolve<any> {
+export class ProposalResolver implements Resolve<any> {
     constructor(private orderService: OrderService, private toastr: ToastrService,
         private router: Router) {}
     resolve(route: ActivatedRouteSnapshot): Observable<any> {
@@ -30,27 +32,23 @@ export class OrderResolver implements Resolve<any> {
     }
 }
 
+
 const routes: Routes = [
-  {path: 'customer', component: CustomerDashboardComponent,
+  {path: 'worker', component: WorkerDashboardComponent,
     runGuardsAndResolvers: 'always',
-    canActivate: [AuthGuard, CustomerGuard],
+    canActivate: [AuthGuard, WorkerGuard],
     children: [
-      {path: 'create-order', component: CreateOrderComponent},
-      {path: 'profile', component: CustomerProfileComponent},
-      {path: 'your-orders', component: YourOrdersComponent},
-      {path: 'order-proposals/:orderId', component: OrderProposalsComponent,
-        resolve: {data: OrderResolver}
-      },
+      {path: 'search-for-orders', component: SearchForOrdersComponent},
+      {path: 'add-proposal/:orderId', component: AddProposalComponent,
+      resolve: {data: ProposalResolver}},
       {path: 'your-operations', component: YourOperationsComponent},
-      
+      {path: 'your-proposals', component: YourProposalsComponent},
     ]
 }
 ];
-
-
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class CustomerRoutingModule { }
+export class WorkerRoutingModule { }

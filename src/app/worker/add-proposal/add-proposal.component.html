@@ -1,0 +1,47 @@
+<mat-card class="m-2 w-40">
+    <mat-card-subtitle>Make a proposal</mat-card-subtitle>
+    <mat-card-content>
+      <h3>Order description: {{order.description}}</h3>
+    </mat-card-content>
+
+    <mat-card class="m-1" *ngFor="let tool of toolsInProposal">
+      <h4>Tool name: {{tool.toolName}}</h4>
+      <h4>Tool rental price: {{tool.rentalPrice}}$</h4>
+      <mat-card-actions align="center">
+        <mat-card-action>
+            <button mat-raised-button class="ml-3" color="warn" (click)="removeToolFromProposal(tool)">Remove tool</button>
+        </mat-card-action>   
+      </mat-card-actions>
+    </mat-card>
+
+    <mat-card-actions align="center">  
+      <a mat-raised-button class="" color="primary" (click)="addProposal()">
+          Confirm
+      </a>
+    </mat-card-actions>
+</mat-card>
+
+<!-- <mat-card class="m-2 w-40" *ngFor="let tool of toolsFromSearch">
+    <mat-card-subtitle>Order description:</mat-card-subtitle>
+    <mat-card-content><h3>{{order.description}}</h3></mat-card-content>
+    <mat-card-actions align="center">
+        <mat-card-action>
+            <a mat-raised-button class="" color="primary" [routerLink]="['/worker/add-proposal/' + order.orderId]">
+                Make a proposal
+            </a>
+        </mat-card-action>  
+    </mat-card-actions>
+</mat-card> -->
+
+<h3 class="m-2">Tools:</h3>
+<input matInput class="ml-3" [(ngModel)]="toolsSearchString" placeholder="Search for tools">
+<button mat-raised-button class="ml-3 mt-3" color="primary" (click)="getToolsBySearchString(toolsSearchString)">Search</button>
+<mat-card class="m-1 w-40" *ngFor="let tool of freeTools()">
+  <h4>Tool name: {{tool.toolName}}</h4>
+  <h4>Tool rental price: {{tool.rentalPrice}}$</h4>
+  <mat-card-actions align="center">
+    <mat-card-action>
+        <button mat-raised-button class="ml-3" color="primary" (click)="addToolToProposal(tool)">Add tool</button>
+    </mat-card-action>   
+</mat-card-actions>
+</mat-card>

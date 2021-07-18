@@ -21,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
+import {MatChipsModule} from '@angular/material/chips';
 import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -30,6 +31,8 @@ import { AdminModule } from '../admin/admin.module';
 import { AppRoutingModule } from '../app-routing.module';
 import { CustomerModule } from '../customer/customer.module';
 import { YourToolsComponent } from './your-tools/your-tools.component';
+
+import { FileUploadModule } from 'ng2-file-upload';
 
 
 @NgModule({
@@ -52,14 +55,17 @@ import { YourToolsComponent } from './your-tools/your-tools.component';
     MatSidenavModule,
     MatExpansionModule,
     MatFormFieldModule,
+    MatChipsModule,
     MatInputModule,
     Ng2SmartTableModule,
+    FileUploadModule,
     
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatTabsModule,
     MatSelectModule,
+    MatIconModule,
     MatRadioModule,
     ReactiveFormsModule,
     NgbModule,

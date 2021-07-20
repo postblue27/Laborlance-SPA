@@ -33,6 +33,7 @@ import { CustomerModule } from '../customer/customer.module';
 import { YourToolsComponent } from './your-tools/your-tools.component';
 
 import { FileUploadModule } from 'ng2-file-upload';
+import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
 
 
 @NgModule({

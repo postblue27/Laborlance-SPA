@@ -31,6 +31,9 @@ import { AuthComponent } from './auth/auth.component';
 import { AuthService } from './_services/auth.service';
 import { RenterModule } from './renter/renter.module';
 import { WorkerModule } from './worker/worker.module';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { OkCancelDialogComponent } from './ok-cancel-dialog/ok-cancel-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 export function tokenGetter() {
@@ -38,9 +41,11 @@ export function tokenGetter() {
 }
 
 @NgModule({
-  declarations: [	
+  declarations: [		
       AppComponent,
-      AuthComponent
+      AuthComponent,
+      PageNotFoundComponent,
+      OkCancelDialogComponent
    ],
   imports: [
     BrowserModule,
@@ -53,6 +58,7 @@ export function tokenGetter() {
     MatSelectModule,
     MatSidenavModule,
     MatRadioModule,
+    MatDialogModule,
     MatListModule,
     ReactiveFormsModule,
     NgbModule,

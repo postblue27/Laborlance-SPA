@@ -1,5 +1,5 @@
-
-  <form [formGroup]="toolForm" (ngSubmit)="addTool()" class="example-form ml-4 mt-4 w-25">
+<div class="add-tool-content">
+  <form [formGroup]="toolForm" (ngSubmit)="addTool()">
     <mat-form-field class="w-100">
       <mat-label>Tool name</mat-label>
       <input matInput formControlName="toolName" placeholder="">
@@ -29,9 +29,10 @@
       </mat-chip>
     </mat-chip-list>
 
-    <button i18n class="w-40" class="mt-3" mat-raised-button color="primary" type="submit">
+    <button i18n class="w-100" class="mt-3" mat-raised-button color="primary" type="submit">
       Submit
     </button>
   </form>
   <br>
+</div>
 

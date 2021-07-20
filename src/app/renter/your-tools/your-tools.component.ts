@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
+import { OkCancelDialogComponent } from 'src/app/ok-cancel-dialog/ok-cancel-dialog.component';
 import { AuthService } from 'src/app/_services/auth.service';
 import { ToolService } from 'src/app/_services/tool.service';
 
@@ -11,7 +13,7 @@ import { ToolService } from 'src/app/_services/tool.service';
 export class YourToolsComponent implements OnInit {
   tools: any;
   constructor(public toolService: ToolService, public toastr: ToastrService,
-    public authService: AuthService) { }
+    public authService: AuthService, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.getRenterTools();
@@ -48,13 +50,20 @@ export class YourToolsComponent implements OnInit {
   }
 
   deleteTool(tool: any) {
-    this.toolService.deleteTool(tool.toolId).subscribe(res => {
-      console.log(res);
-      this.toastr.success('Tool succsessfully deleted');
-      this.getRenterTools();
-    }, error => {
-      console.log(error);
-      this.toastr.error('Error deleting tool');
+    const dialogRef = this.dialog.open(OkCancelDialogComponent, {
+      width: '250px',
+      data: {objectToDeleteType: 'tool'}
     });
+    dialogRef.afterClosed().subscribe(res => {
+      console.log('confirmed');
+    })
+    // this.toolService.deleteTool(tool.toolId).subscribe(res => {
+    //   console.log(res);
+    //   this.toastr.success('Tool succsessfully deleted');
+    //   this.getRenterTools();
+    // }, error => {
+    //   console.log(error);
+    //   this.toastr.error('Error deleting tool');
+    // });
   }
 }

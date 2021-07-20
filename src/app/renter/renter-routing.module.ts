@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
 import { AuthGuard } from '../_guards/auth.guard';
 import { RenterGuard } from '../_guards/renter.guard';
 import { AddToolComponent } from './add-tool/add-tool.component';
@@ -14,7 +15,8 @@ const routes: Routes = [
       {path: 'add-tool', component: AddToolComponent},
       {path: 'your-tools', component: YourToolsComponent},
     ]
-}
+  },
+  {path: '**', component: PageNotFoundComponent}
 ];
 
 @NgModule({

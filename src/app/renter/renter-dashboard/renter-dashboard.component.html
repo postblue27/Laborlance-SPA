@@ -1,4 +1,4 @@
-<mat-card mat-card  class="app-nav color-primary">
+<!-- <mat-card mat-card  class="app-nav color-primary">
   <button i18n type="button" mat-stroked-button color="accent" (click)="drawer.toggle()">
     Toggle sidenav
   </button>
@@ -6,26 +6,15 @@
   <button i18n class="ml-4" mat-stroked-button color="warn" (click)="this.authService.logout()">
     Logout
   </button>
-</mat-card>
-<mat-drawer-container class="example-container" autosize>
-  <mat-drawer #drawer class="example-sidenav" mode="side" opened>
-    
-    <mat-accordion>
+</mat-card> -->
 
-      <mat-list>
-        <mat-list-item>
-          <a i18n mat-stroked-button [routerLink]="['add-tool']" class="sidenav-button">Add Tool</a>
-        </mat-list-item>
-        <mat-list-item>
-          <a i18n mat-stroked-button [routerLink]="['your-tools']" class="sidenav-button">Your tools</a>
-        </mat-list-item>
-      </mat-list>
-
-    </mat-accordion>
-
-  </mat-drawer>
-
-  <mat-drawer-content style="padding-bottom: 100px;">
-    <router-outlet></router-outlet>
-  </mat-drawer-content>
-</mat-drawer-container>
+<nav mat-tab-nav-bar mat-align-tabs="center">
+  <a mat-tab-link *ngFor="let link of links"
+    [routerLink]= [link]
+    (click)="activeLink = link"
+    [active]="activeLink == link"> {{link}} </a>
+  <button i18n class="ml-4" mat-button color="warn" (click)="this.authService.logout()">
+    Logout
+  </button>
+</nav>
+<router-outlet></router-outlet>

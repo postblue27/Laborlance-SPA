@@ -34,6 +34,9 @@ import { YourToolsComponent } from './your-tools/your-tools.component';
 
 import { FileUploadModule } from 'ng2-file-upload';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
+import { EditToolDialogComponent } from './your-tools/edit-tool-dialog/edit-tool-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatBadgeModule } from '@angular/material/badge';
 
 
 @NgModule({
@@ -41,6 +44,7 @@ import { PageNotFoundComponent } from '../page-not-found/page-not-found.componen
     RenterDashboardComponent,
     AddToolComponent,
     YourToolsComponent,
+    EditToolDialogComponent,
   ],
   imports: [
     CommonModule,
@@ -52,7 +56,9 @@ import { PageNotFoundComponent } from '../page-not-found/page-not-found.componen
     MatIconModule,
     MatListModule,
     MatButtonModule,
+    MatDialogModule,
     LayoutModule,
+    MatBadgeModule,
     MatSidenavModule,
     MatExpansionModule,
     MatFormFieldModule,

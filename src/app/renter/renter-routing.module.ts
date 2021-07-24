@@ -14,6 +14,7 @@ const routes: Routes = [
     children: [
       {path: 'add-tool', component: AddToolComponent},
       {path: 'your-tools', component: YourToolsComponent},
+      {path: '',   redirectTo: '/renter/your-tools', pathMatch: 'full' },
     ]
   },
   {path: '**', component: PageNotFoundComponent}

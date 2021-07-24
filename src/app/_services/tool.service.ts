@@ -25,4 +25,8 @@ export class ToolService {
   getAllTools() {
     return this.http.get(this.baseUrl + '/get-all-tools')
   }
+
+  getToolById(toolId: any) {
+    return this.http.get(this.baseUrl + '/get-tool-by-id/' + toolId);
+  }
 }

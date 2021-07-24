@@ -1,22 +1,33 @@
 <div class="your-tools">
   <div class="your-tools-content">
-    <div class="operations-div">
+    <div class="tool-list-div">
       <h3 class="m-2">Free tools:</h3>
       <mat-card class="m-1" *ngFor="let tool of freeTools()">
-        <mat-card class="tool-image" *ngFor="let toolImage of tool.toolImages">
-          <img mat-card-image src={{toolImage.imageUrl}}>
-        </mat-card>
-        <h4 class="mt-2">Tool name: {{tool.toolName}}</h4>
-        <h4>Tool rental price: {{tool.rentalPrice}}$</h4>
+          <mat-card class="tool-image" *ngFor="let toolImage of tool.toolImages">
+            <img mat-card-image src={{toolImage.imageUrl}}>
+          </mat-card>
+          <!-- <mat-divider [inset]="true"></mat-divider> -->
+          <mat-form-field class="tool-form-field" appearance="legacy">
+            <mat-label>Tool name</mat-label>
+            <input matInput readonly value={{tool.toolName}}>
+          </mat-form-field>
+          <mat-form-field class="tool-form-field" appearance="legacy">
+            <mat-label>Tool rental price</mat-label>
+            <input matInput readonly value={{tool.rentalPrice}}>
+            <mat-icon matSuffix>$</mat-icon>
+          </mat-form-field>
         <mat-card-actions align="center">
-          <mat-card-action>
-              <button mat-raised-button class="ml-3" color="warn" (click)="deleteTool(tool)">Delete tool</button>
-          </mat-card-action>   
+          <button mat-raised-button color="primary" (click)="editTool(tool)">
+            <mat-icon aria-hidden="false">edit</mat-icon>
+          </button>
+          <button mat-raised-button color="warn" (click)="deleteTool(tool)">
+            <mat-icon aria-hidden="false">delete</mat-icon>
+          </button>
       </mat-card-actions>
       </mat-card>
     </div>
 
-    <div class="operations-div">
+    <div class="tool-list-div">
       <h3 class="m-2">In operations:</h3>
       <mat-card class="m-1" *ngFor="let tool of toolsInOperations()">
         <h4>Tool name: {{tool.toolName}}</h4>

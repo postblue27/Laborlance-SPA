@@ -8,14 +8,19 @@
     max-width: 800px;   
     padding-bottom: 100px;
 }
-.operations-div{
+.tool-list-div{
     display: inline-block;
     width: 50%;
     margin: auto;
     vertical-align: top;
 }
 .tool-image{
-    width: 25%;
+    width: 30%;
     display: inline-block;
     margin-right: 5px;
+    margin-bottom: 25px;
+}
+.tool-form-field{
+    width: 100%;
+    font-size: 18px;
 }

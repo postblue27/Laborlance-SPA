@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { OkCancelDialogComponent } from 'src/app/ok-cancel-dialog/ok-cancel-dialog.component';
 import { AuthService } from 'src/app/_services/auth.service';
 import { ToolService } from 'src/app/_services/tool.service';
+import { EditToolDialogComponent } from './edit-tool-dialog/edit-tool-dialog.component';
 
 @Component({
   selector: 'app-your-tools',
@@ -55,15 +56,23 @@ export class YourToolsComponent implements OnInit {
       data: {objectToDeleteType: 'tool'}
     });
     dialogRef.afterClosed().subscribe(res => {
-      console.log('confirmed');
-    })
-    // this.toolService.deleteTool(tool.toolId).subscribe(res => {
-    //   console.log(res);
-    //   this.toastr.success('Tool succsessfully deleted');
-    //   this.getRenterTools();
-    // }, error => {
-    //   console.log(error);
-    //   this.toastr.error('Error deleting tool');
-    // });
+      if(res) {
+        this.toolService.deleteTool(tool.toolId).subscribe(res => {
+          console.log(res);
+          this.toastr.success('Tool succsessfully deleted');
+          this.getRenterTools();
+        }, error => {
+          console.log(error);
+          this.toastr.error('Error deleting tool');
+        });
+      }
+    });
+  }
+
+  editTool(tool: any) {
+    const dialogRef = this.dialog.open(EditToolDialogComponent, {
+      width: '450px',
+      data: {tool: tool}
+    });
   }
 }

@@ -1,0 +1,25 @@
+<h1 mat-dialog-title>Modify tool information</h1>
+<div mat-dialog-content>
+  <mat-card class="tool-image" *ngFor="let toolImage of data.tool.toolImages">
+    <img class="image-container" mat-card-image src={{toolImage.imageUrl}}>
+    <mat-card-actions align="center">
+      <button mat-button class="delete-image-button" (click)="deleteToolImage(toolImage)" color="warn">
+        <mat-icon aria-hidden="false">delete</mat-icon>
+      </button>
+      <!-- <button class="delete-image-button" mat-button [mat-dialog-close]="true">Delete</button> -->
+    </mat-card-actions>
+  </mat-card>
+  <mat-form-field class="tool-form-field" appearance="legacy">
+    <mat-label>Tool name</mat-label>
+    <input matInput value={{data.tool.toolName}}>
+  </mat-form-field>
+  <mat-form-field class="tool-form-field" appearance="legacy">
+    <mat-label>Tool rental price</mat-label>
+    <input matInput value={{data.tool.rentalPrice}}>
+    <mat-icon matSuffix>$</mat-icon>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Confirm</button>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+</div>

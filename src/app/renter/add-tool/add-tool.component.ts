@@ -49,19 +49,6 @@ export class AddToolComponent implements OnInit {
 
   onFileSelected(event) {
     this.files = Array.from(event.target.files);
-
-    // if (file) {
-
-    //     this.fileName = file.name;
-
-    //     const formData = new FormData();
-
-    //     formData.append("thumbnail", file);
-
-    //     // const upload$ = this.http.post("/api/thumbnail-upload", formData);
-
-    //     // upload$.subscribe();
-    // }
   }
 
   remove(file: File): void {

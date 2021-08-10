@@ -9,6 +9,15 @@
       <!-- <button class="delete-image-button" mat-button [mat-dialog-close]="true">Delete</button> -->
     </mat-card-actions>
   </mat-card>
+  <input type="file" class="file-input" multiple
+       (change)="onFileSelected($event)" #fileUpload>
+  <div class="file-upload">
+    <button mat-stroked-button type="button" color="primary" class="upload-btn mb-2"
+      (click)="fileUpload.click()">
+      <mat-icon>attach_file</mat-icon>
+      Add images
+    </button>
+  </div>
   <mat-form-field class="tool-form-field" appearance="legacy">
     <mat-label>Tool name</mat-label>
     <input matInput value={{data.tool.toolName}}>

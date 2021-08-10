@@ -74,5 +74,8 @@ export class YourToolsComponent implements OnInit {
       width: '450px',
       data: {tool: tool}
     });
+    dialogRef.afterClosed().subscribe(res => {
+      this.getRenterTools();
+    });
   }
 }

@@ -29,4 +29,12 @@ export class ToolService {
   getToolById(toolId: any) {
     return this.http.get(this.baseUrl + '/get-tool-by-id/' + toolId);
   }
+
+  deleteToolImage(publicId: any) {
+    return this.http.delete(this.baseUrl + '/delete-tool-image/' + publicId);
+  }
+
+  addNewToolImages(form: any) {
+    return this.http.post(this.baseUrl + '/add-new-tool-images', form);
+  }
 }

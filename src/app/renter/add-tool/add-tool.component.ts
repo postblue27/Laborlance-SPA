@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { FileUploader } from 'ng2-file-upload';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/_services/auth.service';
@@ -25,7 +26,7 @@ export class AddToolComponent implements OnInit {
   fileName = '';
   // public uploader:FileUploader = new FileUploader({url: URL});
   constructor(public fb: FormBuilder, public toolService: ToolService, public toastr: ToastrService,
-      public authService: AuthService) { }
+      public authService: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -41,6 +42,7 @@ export class AddToolComponent implements OnInit {
     this.toolService.addTool(formData).subscribe(res => {
       console.log(res);
       this.toastr.success('Tool succsessfully added');
+      this.router.navigateByUrl('/renter/your-tools');
     }, error => {
       console.log(error);
       this.toastr.error('Problem adding tool');

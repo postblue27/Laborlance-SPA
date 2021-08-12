@@ -2,6 +2,7 @@
   <div class="your-tools-content">
     <div class="tool-list-div">
       <h3 class="m-2">Free tools:</h3>
+      <mat-divider></mat-divider>
       <mat-card class="m-1" *ngFor="let tool of freeTools()">
           <mat-card class="tool-image" *ngFor="let toolImage of tool.toolImages">
             <img mat-card-image src={{toolImage.imageUrl}}>

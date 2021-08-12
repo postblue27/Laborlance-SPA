@@ -37,4 +37,8 @@ export class ToolService {
   addNewToolImages(form: any) {
     return this.http.post(this.baseUrl + '/add-new-tool-images', form);
   }
+
+  editTool(editedTool: any) {
+    return this.http.post(this.baseUrl + '/edit-tool', editedTool);
+  }
 }

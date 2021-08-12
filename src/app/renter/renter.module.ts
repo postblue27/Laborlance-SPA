@@ -18,7 +18,7 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import {MatChipsModule} from '@angular/material/chips';
@@ -67,6 +67,7 @@ import { MatBadgeModule } from '@angular/material/badge';
     Ng2SmartTableModule,
     FileUploadModule,
     
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

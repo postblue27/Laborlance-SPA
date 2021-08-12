@@ -20,15 +20,16 @@
   </div>
   <mat-form-field class="tool-form-field" appearance="legacy">
     <mat-label>Tool name</mat-label>
-    <input matInput value={{data.tool.toolName}}>
+    <input [(ngModel)]="editedTool.toolName" matInput>
   </mat-form-field>
   <mat-form-field class="tool-form-field" appearance="legacy">
     <mat-label>Tool rental price</mat-label>
-    <input matInput value={{data.tool.rentalPrice}}>
+    <input [(ngModel)]="editedTool.rentalPrice" matInput >
     <mat-icon matSuffix>$</mat-icon>
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Confirm</button>
+  <!-- <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Confirm</button> -->
+  <button mat-button (click)="editTool()">Confirm</button>
   <button mat-button (click)="onNoClick()">Cancel</button>
 </div>

@@ -15,9 +15,10 @@ const routes: Routes = [
       {path: 'add-tool', component: AddToolComponent},
       {path: 'your-tools', component: YourToolsComponent},
       {path: '',   redirectTo: '/renter/your-tools', pathMatch: 'full' },
+      {path: '**', component: PageNotFoundComponent}
     ]
   },
-  {path: '**', component: PageNotFoundComponent}
+  
 ];
 
 @NgModule({
